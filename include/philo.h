@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:14:19 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/03 21:07:51 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/03 21:12:21 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef	struct	s_philo
 	int				id;
 	pthread_t		thread;
 	pthread_mutex_t	fork;
+	int				nb_eaten_meal;
 	struct t_philo	*next;
 	struct t_philo	*previous;
 }					t_philo;
