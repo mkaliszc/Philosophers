@@ -1,24 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils-1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 21:32:51 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/03 19:39:56 by mkaliszc         ###   ########.fr       */
+/*   Created: 2025/02/03 17:49:43 by mkaliszc          #+#    #+#             */
+/*   Updated: 2025/02/03 18:18:10 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+int	ft_isspace(int c)
 {
-	t_data	*data;
+	if (c == ' ' || (c >= 9 && c <= 13))
+		return (1);
+	return (0);
+}
 
-	if (argc != 6 && argc != 5)
-		return(ft_putstr_fd("the numbers of arg must be 5 or 6\n", 2), 1);
-	data = init_data(argc, argv);
-	if (!data)
-		return(1);
+int	ft_isdigit(int arg)
+{
+	if (arg >= '0' && arg <= '9')
+		return (1);
+	return (0);
+}
+
+void	ft_putchar_fd(int c, int fd)
+{
+	write(fd, &c, 1);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }

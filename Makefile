@@ -1,4 +1,4 @@
-NAME = pipex
+NAME = philo
 
 LCYAN = \033[1;36m
 GREEN = \033[0;32m
@@ -18,9 +18,8 @@ CFLAGS = -Wall -Wextra -Werror -Iinclude
 SRC_DIR = src
 OBJ_DIR = obj
 
-FT = main \
-	parsing/init_struct parsing/command \
-	pipex/handle_child pipex/pipex \
+FT = main parsing \
+	utils/utils-1 \
 
 SOURCES = $(addprefix $(SRC_DIR)/, $(addsuffix .c, $(FT)))
 OBJS = $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(FT)))
