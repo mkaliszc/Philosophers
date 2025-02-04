@@ -6,11 +6,13 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 21:32:51 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/03 19:39:56 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/04 03:49:05 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+// * get ft_atoi from libft
 
 int	main(int argc, char **argv)
 {
@@ -21,4 +23,5 @@ int	main(int argc, char **argv)
 	data = init_data(argc, argv);
 	if (!data)
 		return(1);
+	create_philosophers(data);
 }

@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:14:19 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/03 21:12:21 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/04 00:59:21 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ typedef struct s_data
 	int	time_to_eat;
 	int	time_to_sleep;
 	int	nb_meal;
-	
+	struct s_philo	*first_philo;
+	// ? pthread_mutex_t	data;
 }		t_data;
 
 t_data	*init_data(int argc, char **argv);
