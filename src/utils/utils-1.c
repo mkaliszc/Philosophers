@@ -6,11 +6,38 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:49:43 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/03 18:18:10 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:02:45 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	nbr;
+	int	sign;
+
+	i = 0;
+	nbr = 0;
+	sign = 1;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
+		|| str[i] == '\r' || str[i] == '\f' || str[i] == '\v')
+		i++;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] <= '9' && str[i] >= '0')
+	{
+		nbr = nbr * 10 + str[i] - '0';
+		i++;
+	}
+	return (nbr * sign);
+}
 
 int	ft_isspace(int c)
 {
