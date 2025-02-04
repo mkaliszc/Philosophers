@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:14:19 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/04 21:05:23 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 00:12:50 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <stdarg.h>
 # include <fcntl.h>
 # include <stdbool.h>
+# include <sys/time.h>
 
 # define MAX_PHILO 200
 
@@ -36,7 +37,7 @@ typedef struct s_philo
 	size_t			time_to_sleep;
 	size_t			start_time;
 	int				nb_of_philos;
-	int				num_times_to_eat;
+	int				total_nb_of_meals;
 	int				is_dead;
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*l_fork;
@@ -58,6 +59,8 @@ t_data	*init_data(int argc, char **argv);
 void	init_forks(pthread_mutex_t *forks, int philo_num);
 bool	check_args_format(int argc, char **argv);
 void	*monitor(void *ptr);
+void	sleep(t_philo *philo);
+void	think(t_philo *philo);
 
 /* lib function */
 

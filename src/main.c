@@ -6,13 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 21:32:51 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/04 17:17:39 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/04 23:19:20 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-// * get ft_atoi from libft
 
 int	main(int argc, char **argv)
 {

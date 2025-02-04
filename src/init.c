@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:11:18 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/04 20:47:12 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/04 23:40:57 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	init_time(t_philo *philo, char **argv)
 	philo->time_to_sleep = ft_atoi(argv[4]);
 	philo->nb_of_philos = ft_atoi(argv[1]);
 	if (argv[5])
-		philo->num_times_to_eat = ft_atoi(argv[5]);
+		philo->total_nb_of_meals = ft_atoi(argv[5]);
 	else
-		philo->num_times_to_eat = -1;
+		philo->total_nb_of_meals = -1;
 }
 
 void	init_philo(t_philo *philos, t_data *data, pthread_mutex_t *fork, char **argv)
