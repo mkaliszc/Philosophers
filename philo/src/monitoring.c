@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 20:55:41 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 16:15:40 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:48:07 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,27 @@ int	philosopher_dead(t_philo *philo, size_t time_to_die)
 	return (0);
 }
 
-bool	meal_checker(t_philo *philo)
+int	meal_checker(t_philo *philo)
 {
 	int		i;
 	int		finished_eating;
 
 	i = 0;
 	finished_eating = 0;
-	if (philo[0].total_nb_of_meals)
-		return (false);
+	if (philo[0].total_nb_of_meals == -1)
+		return (0);
 	while (i < philo[0].nb_of_philos)
 	{
 		pthread_mutex_lock(philo[i].meal_lock);
 		if (philo[i].meals_eaten >= philo[i].total_nb_of_meals)
-			finished_eating++;;
+			finished_eating++;
 		pthread_mutex_unlock(philo[i].meal_lock);
 		i++;
 	}
 	if (finished_eating == philo[0].nb_of_philos)
 	{
 		pthread_mutex_lock(philo[0].dead_lock);
-		philo->is_dead = 1;
+		*philo->is_dead = 1;
 		pthread_mutex_unlock(philo[0].dead_lock);
 		return (1);
 	}
@@ -69,7 +69,7 @@ int	dead_checker(t_philo *philos)
 		{
 			print_message("is dead", &philos[i], philos[i].id);
 			pthread_mutex_lock(philos[0].dead_lock);
-			philos->is_dead = 1;
+			*philos->is_dead = 1;
 			pthread_mutex_unlock(philos[0].dead_lock);
 			return(1);
 		}

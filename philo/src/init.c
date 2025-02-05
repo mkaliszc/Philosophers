@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:11:18 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 15:20:42 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:42:47 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	init_philo(t_philo *philos, t_data *data, pthread_mutex_t *fork, char **arg
 		philos[i].write_lock = &data->write_lock;
 		philos[i].dead_lock = &data->dead_lock;
 		philos[i].meal_lock = &data->meal_lock;
-		philos[i].is_dead = data->dead_flag;
+		philos[i].is_dead = &data->dead_flag;
 		philos[i].l_fork = &fork[i];
 		if ( i == 0)
 			philos[i].r_fork = &fork[philos[i].nb_of_philos - 1];

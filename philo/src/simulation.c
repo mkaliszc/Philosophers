@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:47:16 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 16:13:45 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:50:05 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	if_dead_loop(t_philo *philo)
 {
 	pthread_mutex_lock(philo->dead_lock);
-	if (philo->is_dead)
+	if (*philo->is_dead)
 		return (pthread_mutex_unlock(philo->dead_lock), 1);
 	pthread_mutex_unlock(philo->dead_lock);
 	return (0);
@@ -28,7 +28,7 @@ void	*routine(void *ptr)
 	cur_philo = (t_philo *)ptr;
 	if (cur_philo->id % 2 == 0)
 		ft_usleep(1);
-	while (!if_dead_loop(cur_philo))
+	while (if_dead_loop(cur_philo) != 1)
 	{
 		eat(cur_philo);
 		go_to_bed(cur_philo);

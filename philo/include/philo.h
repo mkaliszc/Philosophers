@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:14:19 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 16:23:55 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:40:27 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_philo
 	size_t			start_time;
 	int				nb_of_philos;
 	int				total_nb_of_meals;
-	int				is_dead;
+	int				*is_dead;
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*l_fork;
 	pthread_mutex_t	*write_lock;
