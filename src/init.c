@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:11:18 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/04 23:40:57 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:20:42 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	init_philo(t_philo *philos, t_data *data, pthread_mutex_t *fork, char **arg
 	}
 }
 
-void	init_forks(pthread_mutex_t *forks, int nb)
+void	init_forks_mutex(pthread_mutex_t *forks, int nb)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 21:32:51 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/04 23:19:20 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:24:17 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,6 @@ int	main(int argc, char **argv)
 	data->philos = philos;
 	init_forks_mutex(forks, ft_atoi(argv[1]));
 	init_philo(philos, data, forks, argv);
+	thread_create(data, forks);
+	cleanup_philo(NULL, data, forks);
 }

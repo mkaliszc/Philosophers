@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:11:36 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/04 16:15:21 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:21:54 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	check_overflows(char *arg)
 	return (1);
 }
 
-bool	is_unsigned_int(char	*arg)
+bool	is_unsigned_int(char *arg)
 {
 	int	j;
 
@@ -42,7 +42,7 @@ bool	is_unsigned_int(char	*arg)
 		return (ft_putstr_fd("invalid arg format\n", 2),false);
 	while (arg[j] != '\0')
 	{
-		if (ft_isdigit(arg[j]) == 0)
+		if (ft_isdigit(arg[j]) == 0 && arg[j] != '\0')
 			return (ft_putstr_fd("arg must be a positive int\n", 2), false);
 		j++;
 	}
@@ -53,7 +53,7 @@ bool	check_args_format(int argc, char **argv)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (i < argc)
 	{
 		if (is_unsigned_int(argv[i]) == false || check_overflows(argv[i]) == false)

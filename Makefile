@@ -18,8 +18,9 @@ CFLAGS = -Wall -Wextra -Werror -Iinclude
 SRC_DIR = src
 OBJ_DIR = obj
 
-FT = main parsing \
-	utils/utils-1 \
+FT = main \
+	parsing init monitoring routine simulation \
+	utils/utils-1 utils/utils-2 utils/free_philo \
 
 SOURCES = $(addprefix $(SRC_DIR)/, $(addsuffix .c, $(FT)))
 OBJS = $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(FT)))

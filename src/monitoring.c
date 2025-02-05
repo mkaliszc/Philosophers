@@ -6,24 +6,11 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 20:55:41 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/04 23:50:08 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:15:40 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	print_message(char *str, t_philo *philo, int id)
-{
-	size_t	time;
-
-	pthread_mutex_lock(philo->write_lock);
-	time = get_current_time() - philo->start_time;
-	if (!dead_loop(philo))
-		printf("%zu %d %s\n", time, id, str);
-	pthread_mutex_unlock(philo->write_lock);
-}
-
-// Checks if the philosopher is dead
 
 int	philosopher_dead(t_philo *philo, size_t time_to_die)
 {
@@ -62,6 +49,15 @@ bool	meal_checker(t_philo *philo)
 	return (0);
 }
 
+int	philo_dead(t_philo *philo, size_t death_time)
+{
+	pthread_mutex_lock(philo->meal_lock);
+	if (get_current_time() - philo->last_meal >= death_time && philo->eating == 0)
+		return(pthread_mutex_unlock(philo->meal_lock), 1);
+	pthread_mutex_unlock(philo->meal_lock);
+	return(0);
+}
+
 int	dead_checker(t_philo *philos)
 {
 	int	i;
@@ -69,9 +65,9 @@ int	dead_checker(t_philo *philos)
 	i = 0;
 	while (i < philos[0].nb_of_philos)
 	{
-		if (philo_dead())
+		if (philo_dead(&philos[i], philos[i].time_to_die))
 		{
-			write_msg("is dead", philos[i], philos[i].id);
+			print_message("is dead", &philos[i], philos[i].id);
 			pthread_mutex_lock(philos[0].dead_lock);
 			philos->is_dead = 1;
 			pthread_mutex_unlock(philos[0].dead_lock);
