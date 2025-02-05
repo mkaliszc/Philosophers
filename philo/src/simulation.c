@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:47:16 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 16:50:05 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:56:01 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	if_dead_loop(t_philo *philo)
 void	*routine(void *ptr)
 {
 	t_philo	*cur_philo;
-	
+
 	cur_philo = (t_philo *)ptr;
 	if (cur_philo->id % 2 == 0)
 		ft_usleep(1);
@@ -47,7 +47,8 @@ int	thread_create(t_data *data, pthread_mutex_t *forks)
 	i = 0;
 	while (i < data->philos[0].nb_of_philos)
 	{
-		if (pthread_create(&data->philos[i].thread, NULL, &routine, &data->philos[i]) != 0)
+		if (pthread_create(&data->philos[i].thread, NULL,
+				&routine, &data->philos[i]) != 0)
 			cleanup_philo("Error while creating a thread", data, forks);
 		i++;
 	}

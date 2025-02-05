@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:11:18 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 16:42:47 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:56:35 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	init_time(t_philo *philo, char **argv)
 		philo->total_nb_of_meals = -1;
 }
 
-void	init_philo(t_philo *philos, t_data *data, pthread_mutex_t *fork, char **argv)
+void	init_philo(t_philo *philos, t_data *data,
+		pthread_mutex_t *fork, char **argv)
 {
 	int	i;
 
@@ -42,7 +43,7 @@ void	init_philo(t_philo *philos, t_data *data, pthread_mutex_t *fork, char **arg
 		philos[i].meal_lock = &data->meal_lock;
 		philos[i].is_dead = &data->dead_flag;
 		philos[i].l_fork = &fork[i];
-		if ( i == 0)
+		if (i == 0)
 			philos[i].r_fork = &fork[philos[i].nb_of_philos - 1];
 		else
 			philos[i].r_fork = &fork[i - 1];
@@ -64,10 +65,10 @@ t_data	*init_data(int argc, char **argv)
 	t_data	*return_ptr;
 
 	if (check_args_format(argc, argv) == false)
-		return(NULL);
+		return (NULL);
 	return_ptr = malloc(sizeof(t_data));
 	if (!return_ptr)
-		return(ft_putstr_fd("Error : malloc t_data", 2), NULL);
+		return (ft_putstr_fd("Error : malloc t_data", 2), NULL);
 	pthread_mutex_init(&return_ptr->dead_lock, NULL);
 	pthread_mutex_init(&return_ptr->meal_lock, NULL);
 	pthread_mutex_init(&return_ptr->write_lock, NULL);

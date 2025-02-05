@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 21:32:51 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 16:24:17 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:56:50 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	main(int argc, char **argv)
 	pthread_mutex_t	*forks;
 
 	if (argc != 6 && argc != 5)
-		return(ft_putstr_fd("the numbers of arg must be 5 or 6\n", 2), 1);
+		return (ft_putstr_fd("the numbers of arg must be 5 or 6\n", 2), 1);
 	data = init_data(argc, argv);
 	if (!data)
-		return(1);
+		return (1);
 	philos = malloc(sizeof(t_philo) * ft_atoi(argv[1]));
 	forks = malloc(sizeof(pthread_mutex_t) * ft_atoi(argv[1]));
 	data->philos = philos;

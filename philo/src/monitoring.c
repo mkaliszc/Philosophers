@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 20:55:41 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 16:48:07 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:57:39 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,11 @@ int	meal_checker(t_philo *philo)
 int	philo_dead(t_philo *philo, size_t death_time)
 {
 	pthread_mutex_lock(philo->meal_lock);
-	if (get_current_time() - philo->last_meal >= death_time && philo->eating == 0)
-		return(pthread_mutex_unlock(philo->meal_lock), 1);
+	if (get_current_time() - philo->last_meal >= death_time
+		&& philo->eating == 0)
+		return (pthread_mutex_unlock(philo->meal_lock), 1);
 	pthread_mutex_unlock(philo->meal_lock);
-	return(0);
+	return (0);
 }
 
 int	dead_checker(t_philo *philos)
@@ -71,7 +72,7 @@ int	dead_checker(t_philo *philos)
 			pthread_mutex_lock(philos[0].dead_lock);
 			*philos->is_dead = 1;
 			pthread_mutex_unlock(philos[0].dead_lock);
-			return(1);
+			return (1);
 		}
 		i++;
 	}

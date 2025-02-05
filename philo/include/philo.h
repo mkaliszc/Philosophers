@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:14:19 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 16:40:27 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:55:08 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ typedef struct s_data
 
 t_data	*init_data(int argc, char **argv);
 void	init_forks_mutex(pthread_mutex_t *forks, int philo_num);
-void	init_philo(t_philo *philos, t_data *data, pthread_mutex_t *fork, char **argv);
+void	init_philo(t_philo *philos, t_data *data,
+			pthread_mutex_t *fork, char **argv);
 bool	check_args_format(int argc, char **argv);
 int		thread_create(t_data *data, pthread_mutex_t *forks);
 
