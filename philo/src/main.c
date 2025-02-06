@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 21:32:51 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 18:56:50 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:05:42 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,7 @@ int	main(int argc, char **argv)
 	init_philo(philos, data, forks, argv);
 	thread_create(data, forks);
 	cleanup_philo(NULL, data, forks);
+	free(data->philos);
+	free(forks);
+	free(data);
 }
