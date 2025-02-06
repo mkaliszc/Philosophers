@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:14:19 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 18:55:08 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:50:14 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ size_t	get_current_time(void);
 void	cleanup_philo(char *str, t_data *program, pthread_mutex_t *forks);
 
 int		if_dead_loop(t_philo *philo);
-int		ft_usleep(size_t milliseconds);
+int		synchro_sleep(size_t sleep_time, int *dead_flag);
 void	go_to_bed(t_philo *philo);
 void	think(t_philo *philo);
 void	eat(t_philo *philo);

@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 23:50:53 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 16:14:00 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:55:35 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,18 @@ void	ft_putendl_fd(char *s, int fd)
 	ft_putchar_fd('\n', fd);
 }
 
-int	ft_usleep(size_t milliseconds)
+int	synchro_sleep(size_t sleep_time, int *dead_flag)
 {
 	size_t	start;
 
 	start = get_current_time();
-	while ((get_current_time() - start) < milliseconds)
-		usleep(500);
+	while (*dead_flag != 1)
+	{
+		if (start >= sleep_time)
+			break ;
+		usleep(50);
+		start = get_current_time();
+	}
 	return (0);
 }
 

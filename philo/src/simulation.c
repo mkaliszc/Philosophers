@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:47:16 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 18:56:01 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:56:25 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*routine(void *ptr)
 
 	cur_philo = (t_philo *)ptr;
 	if (cur_philo->id % 2 == 0)
-		ft_usleep(1);
+		usleep(15000);
 	while (if_dead_loop(cur_philo) != 1)
 	{
 		eat(cur_philo);

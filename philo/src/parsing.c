@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:11:36 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 18:55:36 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:51:50 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool	check_overflows(char *arg)
 	{
 		nbr = (nbr * 10) + (arg[i] - '0');
 		if (nbr > 2147483647)
-			return (0);
+			return (ft_putstr_fd("Error : int expected\n", 2), 0);
 		i++;
 	}
 	return (1);

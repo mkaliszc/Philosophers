@@ -37,11 +37,11 @@ $(NAME): $(OBJS)
 	@echo "$(SUCCESS)"
 
 clean:
-	@echo "$(CLEANING) $(GRAY)$(OBJ_DIR) in $(LIB_DIR) and local dir$(RESET)"
+	@echo "$(CLEANING) $(GRAY)$(OBJ_DIR) in local dir$(RESET)"
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@echo "$(CLEANING) $(GRAY)$(NAME) and Lib in $(LIB_DIR)$(RESET)"
+	@echo "$(CLEANING) $(GRAY)$(NAME) $(RESET)"
 	rm -f $(NAME)
 
 

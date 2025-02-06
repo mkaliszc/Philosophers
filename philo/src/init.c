@@ -6,7 +6,7 @@
 /*   By: mkaliszc <mkaliszc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:11:18 by mkaliszc          #+#    #+#             */
-/*   Updated: 2025/02/05 18:56:35 by mkaliszc         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:28:33 by mkaliszc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ t_data	*init_data(int argc, char **argv)
 
 	if (check_args_format(argc, argv) == false)
 		return (NULL);
+	if (ft_atoi(argv[1]) > MAX_PHILO)
+		return (ft_putstr_fd("too many philos\n", 2), NULL);
 	return_ptr = malloc(sizeof(t_data));
 	if (!return_ptr)
 		return (ft_putstr_fd("Error : malloc t_data", 2), NULL);
